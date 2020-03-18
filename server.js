@@ -18,9 +18,15 @@ db.connect((err) => {
 });
 
 const app = express();
+app.set('views', `${__dirname}/views`)
+app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-    res.send('YEPPPPPPP');
+    const sampleResponse = {
+        title: 'Some Title'
+    }
+    res.render('index', sampleResponse);
+    console.log('running /');
 })
 
 // Create DB
